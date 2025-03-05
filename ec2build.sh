@@ -26,6 +26,6 @@ export MONGODB_CONNECTION_STRING=mongodb://$MONGODB_USER:$MONGODB_PASS@$MONGODB_
 sudo -u LibreChat sed -i "s/MONGO_URI=.*#/" $LIBRE_DIR/.env
 sudo -u LibreChat echo "$MONGODB_CONNECTION_STRING" >> $LIBRE_DIR/.env
 sudo -u LibreChat echo "BEDROCK_AWS_DEFAULT_REGION=$BEDROCK_AWS_DEFAULT_REGION" >> $LIBRE_DIR/.env
-sudo -u LibreChat npm --prefix $LIBRE_DIR install $LIBRE_DIR/package.json
+sudo -u LibreChat npm --prefix $LIBRE_DIR install
 sudo -u LibreChat npm --prefix $LIBRE_DIR ci
 sudo -u LibreChat npm --prefix $LIBRE_DIR run frontend

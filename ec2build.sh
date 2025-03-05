@@ -23,7 +23,7 @@ export MONGODB_USER=$(aws secretsmanager get-secret-value --secret-id /docdb/mas
 export BEDROCK_AWS_DEFAULT_REGION=us-east-1
 export BEDROCK_AWS_MODELS=anthropic.claude-3-5-sonnet-20240620-v1:0,meta.llama3-1-8b-instruct-v1:0
 export MONGODB_CONNECTION_STRING=mongodb://$MONGODB_USER:$MONGODB_PASS@$MONGODB_URI
-sudo -u LibreChat sed -i -e 's/MONGO_URI=.*/MONGO_URI=$MONGODB_CONNECTION_STRING' $LIBRE_DIR/.env
+sudo -u LibreChat sed -i -e 's/MONGO_URI=.*/MONGO_URI=$MONGODB_CONNECTION_STRING/' $LIBRE_DIR/.env
 sudo -u LibreChat echo "BEDROCK_AWS_DEFAULT_REGION=$BEDROCK_AWS_DEFAULT_REGION" >> $LIBRE_DIR/.env
 sudo -u LibreChat npm --prefix $LIBRE_DIR install $LIBRE_DIR/package.json
 sudo -u LibreChat npm --prefix $LIBRE_DIR ci
